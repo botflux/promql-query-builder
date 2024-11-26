@@ -1,0 +1,25 @@
+{
+  "name": "promql-query-builder",
+  "version": "1.0.0",
+  "description": "A PromQL query builder",
+  "main": "promql \"query builder\" prometheus",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/botflux/promql-query-builder.git"
+  },
+  "keywords": [
+    "promql",
+    "\"query",
+    "builder\"",
+    "prometheus"
+  ],
+  "author": "Victor Mendele",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/botflux/promql-query-builder/issues"
+  },
+  "homepage": "https://github.com/botflux/promql-query-builder#readme"
+}
