@@ -4,7 +4,8 @@
   "description": "A PromQL query builder",
   "main": "promql \"query builder\" prometheus",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "rm -rf dist && tsc",
+    "test": "ts-mocha ./src/**/*.spec.ts"
   },
   "repository": {
     "type": "git",
@@ -21,5 +22,15 @@
   "bugs": {
     "url": "https://github.com/botflux/promql-query-builder/issues"
   },
-  "homepage": "https://github.com/botflux/promql-query-builder#readme"
+  "homepage": "https://github.com/botflux/promql-query-builder#readme",
+  "devDependencies": {
+    "@types/chai": "^5.0.1",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "^22.10.0",
+    "chai": "^5.1.2",
+    "mocha": "^10.8.2",
+    "ts-mocha": "^10.0.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.7.2"
+  }
 }
