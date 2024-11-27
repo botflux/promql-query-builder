@@ -21,7 +21,7 @@ export function range(timeseries: TimeseriesSelector, range: Duration[]): Range 
   return new Range(timeseries, range)
 }
 
-type DurationUnit = "ms" | "s" | "m" | "h"
+type DurationUnit = "ms" | "s" | "m" | "h" | "d" | "w"
 
 class Duration implements Buildable {
   constructor(
@@ -35,18 +35,35 @@ class Duration implements Buildable {
   }
 }
 
+function weeks(amount: number): Duration {
+  return new Duration(amount, "w")
+}
+
+function days(amount: number): Duration {
+  return new Duration(amount, "d")
+}
+
 function hours(amount: number): Duration {
   return new Duration(amount, "h")
 }
 
-export function minutes(amount: number): Duration {
+function minutes(amount: number): Duration {
   return new Duration(amount, "m")
 }
 
-export function seconds(amount: number): Duration {
+function seconds(amount: number): Duration {
   return new Duration(amount, "s")
 }
 
-function miliseconds(amount: number): Duration {
+function milliseconds(amount: number): Duration {
   return new Duration(amount, "ms")
+}
+
+export const duration = {
+  weeks,
+  days,
+  hours,
+  minutes,
+  seconds,
+  milliseconds
 }
