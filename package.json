@@ -2,7 +2,8 @@
   "name": "promql-query-builder",
   "version": "1.0.0",
   "description": "A PromQL query builder",
-  "main": "promql \"query builder\" prometheus",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "scripts": {
     "build": "rm -rf dist && tsc",
     "test": "ts-mocha ./src/**/*.spec.ts"
