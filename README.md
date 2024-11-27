@@ -1,6 +1,8 @@
 # `promql-query-builder`
 
 PromQL query builder to help creating dashboard as code using `@grafana/grafana-foundation-sdk`.
+This package was inspired by [`satyanash/promql-jsonnet`](https://github.com/satyanash/promql-jsonnet], a PromQL
+query builder for jsonnet.
 
 ## Installation
 
