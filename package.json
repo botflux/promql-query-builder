@@ -11,10 +11,10 @@
     "type": "git",
     "url": "git+https://github.com/botflux/promql-query-builder.git"
   },
+  "type": "commonjs",
   "keywords": [
     "promql",
-    "\"query",
-    "builder\"",
+    "query builder",
     "prometheus"
   ],
   "author": "Victor Mendele",
@@ -27,7 +27,7 @@
     "@types/chai": "^5.0.1",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.0",
-    "chai": "^5.1.2",
+    "chai": "^4.5.0",
     "mocha": "^10.8.2",
     "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.2",
