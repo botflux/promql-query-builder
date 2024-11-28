@@ -7,7 +7,9 @@
   "scripts": {
     "build": "rm -rf dist && tsc -p tsconfig.build.json",
     "typecheck": "tsc --noEmit",
-    "test": "ts-mocha ./src/**/*.spec.ts"
+    "test": "ts-mocha ./src/**/*.spec.ts",
+    "preversion": "npm run build",
+    "version": "commit-and-tag-version"
   },
   "repository": {
     "type": "git",
@@ -30,6 +32,7 @@
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.0",
     "chai": "^4.5.0",
+    "commit-and-tag-version": "^12.5.0",
     "mocha": "^10.8.2",
     "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.2",
