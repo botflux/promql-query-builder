@@ -45,11 +45,27 @@ function power(terms: (Buildable | number)[]) {
   return new ArithmeticExpression(t, "^")
 }
 
+class Parenthesis implements Buildable {
+  constructor(
+    public readonly wrapped: Buildable
+  ) {
+  }
+
+  build(): string {
+    return `(${this.wrapped.build()})`
+  }
+}
+
+function parenthesis(buildable: Buildable) {
+  return new Parenthesis(buildable);
+}
+
 export const arithmetic = {
   add,
   subtract,
   divide,
   multiply,
   modulo,
-  power
+  power,
+  parenthesis
 }

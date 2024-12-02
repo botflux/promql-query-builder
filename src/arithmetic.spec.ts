@@ -2,6 +2,7 @@ import {describe, it} from "mocha"
 import {expect} from "chai";
 import {timeseriesSelector} from "./selector";
 import {arithmetic} from "./arithmetic";
+import {time} from "./functions";
 
 describe('arithmetic', () => {
   it('should be able to support "+"', () => {
@@ -26,5 +27,11 @@ describe('arithmetic', () => {
 
   it('should be able to support "^"', function () {
     expect(arithmetic.power([ 2, timeseriesSelector("my_metric").withLabels({ method: "DELETE" }) ]).build()).to.equal('2 ^ my_metric{method="DELETE"}')
+  })
+
+  it('should be able to support parenthesis', () => {
+    expect(arithmetic.subtract([ arithmetic.parenthesis(arithmetic.multiply([time(), 1000])), timeseriesSelector("up_since") ]).build()).to.equal(
+      "(time() * 1000) - up_since"
+    )
   })
 })
