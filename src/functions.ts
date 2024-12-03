@@ -38,3 +38,8 @@ export function dayOfMonth() {
 export function dayOfWeek() {
   return prometheusFunction("day_of_week", [])
 }
+
+export function dayOfYear() {
+  return prometheusFunction("day_of_year", [])
+}
+
