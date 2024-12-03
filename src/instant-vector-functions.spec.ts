@@ -3,7 +3,7 @@ import {expect} from "chai";
 import {
   abs,
   absent,
-  ceil,
+  ceil, clamp,
   clampMax,
   clampMin,
   exp,
@@ -77,5 +77,9 @@ describe("instant vector functions", () => {
 
   it("should be able to support 'sqrt'", () => {
     expect(sqrt(timeseriesSelector("my_metric").withLabels({ http_status: "200" })).build()).to.equal('sqrt(my_metric{http_status="200"})')
+  })
+
+  it("should be able to support 'clamp'", () => {
+    expect(clamp(timeseriesSelector("my_metric").withLabels({ http_status: "200" }), 0, 10).build()).to.equal('clamp(my_metric{http_status="200"}, 0, 10)')
   })
 })

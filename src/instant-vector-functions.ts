@@ -23,6 +23,10 @@ export function clampMin(buildable: Buildable, min: number) {
   return prometheusFunction("clamp_min", [buildable, promScalar(min)])
 }
 
+export function clamp(buildable: Buildable, min: number, max: number) {
+  return prometheusFunction("clamp", [ buildable, promScalar(min), promScalar(max) ])
+}
+
 export function exp(buildable: Buildable) {
   return prometheusFunction("exp", [buildable])
 }
