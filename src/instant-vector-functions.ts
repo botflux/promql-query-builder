@@ -90,3 +90,7 @@ export function daysInMonth(buildable?: Buildable) {
 export function histogramAvg(buildable: Buildable) {
   return prometheusFunction("histogram_avg", [buildable])
 }
+
+export function histogramCount(buildable: Buildable) {
+  return prometheusFunction("histogram_count", [buildable])
+}
