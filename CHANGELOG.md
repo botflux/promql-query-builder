@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.0](https://github.com/botflux/promql-query-builder/compare/v1.0.5...v1.1.0) (2024-12-03)
+
+
+### Features
+
+* add time function ([46e99e1](https://github.com/botflux/promql-query-builder/commit/46e99e175cb8269b77b8659b415fd685853b88db))
+* support parenthesis ([5b81890](https://github.com/botflux/promql-query-builder/commit/5b818902a494d6dd18223208112c2d671991d7c0))
+
 ## [1.0.5](https://github.com/botflux/promql-query-builder/compare/v1.0.4...v1.0.5) (2024-11-29)
 
 
