@@ -8,7 +8,7 @@ import {
   clampMin, dayOfMonth, dayOfWeek, dayOfYear, daysInMonth,
   exp,
   floor, histogramAvg, histogramCount, histogramFraction,
-  histogramQuantile, histogramSum,
+  histogramQuantile, histogramSum, hour,
   ln,
   log10, log2, round, scalar, sort, sortDesc, sqrt
 } from "./instant-vector-functions";
@@ -140,5 +140,13 @@ describe("instant vector functions", () => {
       0.2,
       timeseriesSelector("foo").withLabels({ bar: "bar"})
     ).build()).to.equal('histogram_fraction(0, 0.2, foo{bar="bar"})')
+  })
+
+  it('should be able to support "hour"', () => {
+    expect(hour().build()).to.equal('hour()')
+  })
+
+  it('should be able to support "hour" with an arg', () => {
+    expect(hour(vector(time())).build()).to.equal('hour(vector(time()))')
   })
 })

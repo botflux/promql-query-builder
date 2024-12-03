@@ -102,3 +102,7 @@ export function histogramSum(buildable: Buildable) {
 export function histogramFraction (lower: number, upper: number, buildable: Buildable) {
   return prometheusFunction("histogram_fraction", [ promScalar(lower), promScalar(upper), buildable ])
 }
+
+export function hour(buildable?: Buildable) {
+  return prometheusFunction("hour", buildable ? [buildable] : [])
+}
