@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.1.1](https://github.com/botflux/promql-query-builder/compare/v1.1.0...v1.1.1) (2024-12-03)
+
+
+### Bug Fixes
+
+* expose time function in the barrel file ([84d82e9](https://github.com/botflux/promql-query-builder/commit/84d82e9eb242edfc9eb48dbb43937a4fe6770c73))
+
 ## [1.1.0](https://github.com/botflux/promql-query-builder/compare/v1.0.5...v1.1.0) (2024-12-03)
 
 
