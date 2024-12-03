@@ -5,7 +5,7 @@ import {
   absent,
   ceil, clamp,
   clampMax,
-  clampMin,
+  clampMin, dayOfMonth, dayOfWeek, dayOfYear, daysInMonth,
   exp,
   floor,
   histogramQuantile,
@@ -13,6 +13,7 @@ import {
   log10, log2, round, scalar, sort, sortDesc, sqrt
 } from "./instant-vector-functions";
 import {timeseriesSelector} from "./selector";
+import {time, vector} from "./functions";
 
 describe("instant vector functions", () => {
   it("should be able to support 'abs'", () => {
@@ -81,5 +82,37 @@ describe("instant vector functions", () => {
 
   it("should be able to support 'clamp'", () => {
     expect(clamp(timeseriesSelector("my_metric").withLabels({ http_status: "200" }), 0, 10).build()).to.equal('clamp(my_metric{http_status="200"}, 0, 10)')
+  })
+
+  it('should be able to support "day_of_month"', () => {
+    expect(dayOfMonth().build()).to.equal("day_of_month()")
+  })
+
+  it('should be able to support "day_of_month" with an arg', () => {
+    expect(dayOfMonth(vector(time())).build()).to.equal("day_of_month(vector(time()))")
+  })
+
+  it('should be able to support "day_of_week"', () => {
+    expect(dayOfWeek().build()).to.equal("day_of_week()")
+  })
+
+  it('should be able to support "day_of_week" with an arg', () => {
+    expect(dayOfWeek(vector(time())).build()).to.equal("day_of_week(vector(time()))")
+  })
+
+  it('should be able to support "day_of_year"', () => {
+    expect(dayOfYear().build()).to.equal("day_of_year()")
+  })
+
+  it('should be able to support "day_of_year"', () => {
+    expect(dayOfYear(vector(time())).build()).to.equal("day_of_year(vector(time()))")
+  })
+
+  it('should be able to support "days_in_month"', () => {
+    expect(daysInMonth().build()).to.equal("days_in_month()")
+  })
+
+  it('should be able to support "days_in_month" with an arg', () => {
+    expect(daysInMonth(vector(time())).build()).to.equal("days_in_month(vector(time()))")
   })
 })

@@ -1,4 +1,5 @@
 import {Buildable} from "./buildable";
+import {promScalar} from "./primitives";
 
 export class PrometheusFunction implements Buildable {
   constructor(
@@ -31,15 +32,6 @@ export function time() {
   return prometheusFunction("time", [])
 }
 
-export function dayOfMonth() {
-  return prometheusFunction("day_of_month", [])
+export function vector(scalarOrBuildable: number | Buildable) {
+  return prometheusFunction("vector", [ typeof scalarOrBuildable === "number" ? promScalar(scalarOrBuildable) : scalarOrBuildable ])
 }
-
-export function dayOfWeek() {
-  return prometheusFunction("day_of_week", [])
-}
-
-export function dayOfYear() {
-  return prometheusFunction("day_of_year", [])
-}
-

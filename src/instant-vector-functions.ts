@@ -70,3 +70,19 @@ export function sortDesc(buildable: Buildable) {
 export function sqrt(buildable: Buildable) {
   return prometheusFunction("sqrt", [buildable])
 }
+
+export function dayOfMonth(buildable?: Buildable) {
+  return prometheusFunction("day_of_month", buildable ? [buildable] : [])
+}
+
+export function dayOfWeek(buildable?: Buildable) {
+  return prometheusFunction("day_of_week", buildable ? [buildable] : [])
+}
+
+export function dayOfYear(buildable?: Buildable) {
+  return prometheusFunction("day_of_year", buildable ? [buildable] : [])
+}
+
+export function daysInMonth(buildable?: Buildable) {
+  return prometheusFunction("days_in_month", buildable ? [buildable] : [])
+}
