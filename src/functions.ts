@@ -30,3 +30,7 @@ export function prometheusFunction (functionName: string, args: Buildable[]): Bu
 export function time() {
   return prometheusFunction("time", [])
 }
+
+export function dayOfMonth() {
+  return prometheusFunction("day_of_month", [])
+}
