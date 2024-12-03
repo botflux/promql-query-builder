@@ -34,3 +34,7 @@ export function time() {
 export function dayOfMonth() {
   return prometheusFunction("day_of_month", [])
 }
+
+export function dayOfWeek() {
+  return prometheusFunction("day_of_week", [])
+}
