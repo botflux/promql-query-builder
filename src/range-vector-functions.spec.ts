@@ -4,7 +4,7 @@ import {
   absentOverTime, avgOverTime,
   changes, countOverTime,
   delta,
-  deriv,
+  deriv, doubleExponentialSmoothing,
   holtWinters,
   idelta,
   increase,
@@ -89,5 +89,9 @@ describe("range vectors functions", () => {
 
   it("should be able to support 'stdvar_over_time'", () => {
     expect(stdvarOverTime(range(timeseriesSelector("my_metric").withLabels({ code: "200" }), [ duration.minutes(2), duration.seconds(30) ])).build()).to.equal(`stdvar_over_time(my_metric{code="200"}[2m:30s])`)
+  })
+
+  it("should be able to support 'double_exponential_smoothing'", () => {
+    expect(doubleExponentialSmoothing(range(timeseriesSelector("my_metric").withLabels({ code: "200" }), [ duration.minutes(2), duration.seconds(30) ]), 0, 2).build()).to.equal(`double_exponential_smoothing(my_metric{code="200"}[2m:30s], 0, 2)`)
   })
 })

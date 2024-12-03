@@ -91,3 +91,7 @@ export function stddevOverTime(range: Range) {
 export function stdvarOverTime(range: Range) {
   return new RangeVectorFunction("stdvar_over_time", [range])
 }
+
+export function doubleExponentialSmoothing(range: Range, sf: number, tf: number) {
+  return new RangeVectorFunction("double_exponential_smoothing", [range, promScalar(sf), promScalar(tf)])
+}
