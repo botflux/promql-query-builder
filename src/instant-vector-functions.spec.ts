@@ -7,7 +7,7 @@ import {
   clampMax,
   clampMin, dayOfMonth, dayOfWeek, dayOfYear, daysInMonth,
   exp,
-  floor, histogramAvg, histogramCount,
+  floor, histogramAvg, histogramCount, histogramFraction,
   histogramQuantile, histogramSum,
   ln,
   log10, log2, round, scalar, sort, sortDesc, sqrt
@@ -116,21 +116,29 @@ describe("instant vector functions", () => {
     expect(daysInMonth(vector(time())).build()).to.equal("days_in_month(vector(time()))")
   })
 
-  it('should be able to support "histogram_avg" with an arg', () => {
+  it('should be able to support "histogram_avg"', () => {
     expect(histogramAvg(
       timeseriesSelector("foo").withLabels({ bar: "bar"})
     ).build()).to.equal('histogram_avg(foo{bar="bar"})')
   })
 
-  it('should be able to support "histogram_count" with an arg', () => {
+  it('should be able to support "histogram_count"', () => {
     expect(histogramCount(
       timeseriesSelector("foo").withLabels({ bar: "bar"})
     ).build()).to.equal('histogram_count(foo{bar="bar"})')
   })
 
-  it('should be able to support "histogram_sum" with an arg', () => {
+  it('should be able to support "histogram_sum"', () => {
     expect(histogramSum(
       timeseriesSelector("foo").withLabels({ bar: "bar"})
     ).build()).to.equal('histogram_sum(foo{bar="bar"})')
+  })
+
+  it('should be able to support "histogram_fraction"', () => {
+    expect(histogramFraction(
+      0,
+      0.2,
+      timeseriesSelector("foo").withLabels({ bar: "bar"})
+    ).build()).to.equal('histogram_fraction(0, 0.2, foo{bar="bar"})')
   })
 })

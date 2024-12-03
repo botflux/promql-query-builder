@@ -98,3 +98,7 @@ export function histogramCount(buildable: Buildable) {
 export function histogramSum(buildable: Buildable) {
   return prometheusFunction("histogram_sum", [buildable])
 }
+
+export function histogramFraction (lower: number, upper: number, buildable: Buildable) {
+  return prometheusFunction("histogram_fraction", [ promScalar(lower), promScalar(upper), buildable ])
+}
