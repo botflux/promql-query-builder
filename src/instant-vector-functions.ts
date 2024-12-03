@@ -94,3 +94,7 @@ export function histogramAvg(buildable: Buildable) {
 export function histogramCount(buildable: Buildable) {
   return prometheusFunction("histogram_count", [buildable])
 }
+
+export function histogramSum(buildable: Buildable) {
+  return prometheusFunction("histogram_sum", [buildable])
+}

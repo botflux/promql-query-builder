@@ -8,7 +8,7 @@ import {
   clampMin, dayOfMonth, dayOfWeek, dayOfYear, daysInMonth,
   exp,
   floor, histogramAvg, histogramCount,
-  histogramQuantile,
+  histogramQuantile, histogramSum,
   ln,
   log10, log2, round, scalar, sort, sortDesc, sqrt
 } from "./instant-vector-functions";
@@ -122,9 +122,15 @@ describe("instant vector functions", () => {
     ).build()).to.equal('histogram_avg(foo{bar="bar"})')
   })
 
-  it('should be able to support "histogram_avg" with an arg', () => {
+  it('should be able to support "histogram_count" with an arg', () => {
     expect(histogramCount(
       timeseriesSelector("foo").withLabels({ bar: "bar"})
     ).build()).to.equal('histogram_count(foo{bar="bar"})')
+  })
+
+  it('should be able to support "histogram_sum" with an arg', () => {
+    expect(histogramSum(
+      timeseriesSelector("foo").withLabels({ bar: "bar"})
+    ).build()).to.equal('histogram_sum(foo{bar="bar"})')
   })
 })
