@@ -7,7 +7,7 @@ import {
   clampMax,
   clampMin, dayOfMonth, dayOfWeek, dayOfYear, daysInMonth,
   exp,
-  floor,
+  floor, histogramAvg,
   histogramQuantile,
   ln,
   log10, log2, round, scalar, sort, sortDesc, sqrt
@@ -114,5 +114,11 @@ describe("instant vector functions", () => {
 
   it('should be able to support "days_in_month" with an arg', () => {
     expect(daysInMonth(vector(time())).build()).to.equal("days_in_month(vector(time()))")
+  })
+
+  it('should be able to support "histogram_avg" with an arg', () => {
+    expect(histogramAvg(
+      timeseriesSelector("foo").withLabels({ bar: "bar"})
+    ).build()).to.equal('histogram_avg(foo{bar="bar"})')
   })
 })
