@@ -17,7 +17,7 @@ export class Range implements Buildable {
   }
 }
 
-export function range(timeseries: TimeseriesSelector, range: Duration[]): Range {
+export function range(timeseries: TimeseriesSelector, range: (Duration | Buildable)[]): Range {
   return new Range(timeseries, range)
 }
 
