@@ -4,7 +4,7 @@ import {Buildable} from "./buildable";
 export class Range implements Buildable {
   constructor(
     public readonly series: TimeseriesSelector,
-    public readonly range: Duration[]
+    public readonly range: (Duration | Buildable)[]
   ) {
   }
 
