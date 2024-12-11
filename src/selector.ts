@@ -10,7 +10,8 @@ type LabelSelector = "=~" | "=" | "!=" | "!~"
 export class TimeseriesSelector implements Buildable {
   constructor(
     public readonly name: string,
-    public readonly labels: Label[]
+    public readonly labels: Label[],
+    public readonly quoted: boolean,
   ) {
   }
 
@@ -19,29 +20,42 @@ export class TimeseriesSelector implements Buildable {
 
     return new TimeseriesSelector(
       this.name,
-      [...this.labels, ...newLabels]
+      [...this.labels, ...newLabels],
+      this.quoted
     )
   }
 
   withLabel(key: string, op: LabelSelector, value: string): TimeseriesSelector {
     return new TimeseriesSelector(
       this.name,
-      [...this.labels, {key, op, value}]
+      [...this.labels, {key, op, value}],
+      this.quoted
     )
   }
 
   build(): string {
-    return `${this.name}${this.buildLabels()}`
-  }
+    if (this.quoted) {
+      const quotedMetricAndLabels = [
+        `"${this.name}"`,
+        ...this.buildLabels()
+      ].join(",")
 
-  private buildLabels(): string {
-    if (this.labels.length === 0) {
-      return ""
+      return `{${quotedMetricAndLabels}}`
     }
 
-    const built = this.labels.map(({key, op, value}) => `${key}${op}"${value}"`).join(",")
+    const labels = this.buildLabels()
 
-    return `{${built}}`
+    return labels.length === 0
+      ? this.name
+      : `${this.name}{${labels.join(',')}}`
+  }
+
+  private buildLabels(): string[] {
+    if (this.labels.length === 0) {
+      return []
+    }
+
+    return this.labels.map(({key, op, value}) => `${key}${op}"${value}"`)
   }
 }
 
@@ -49,8 +63,8 @@ export class TimeseriesSelector implements Buildable {
  * The timeseries selector is the base to every query.
  *
  * @param name
- * @see {}
+ * @param quoted
  */
-export function timeseriesSelector(name: string): TimeseriesSelector {
-  return new TimeseriesSelector(name, [])
+export function timeseriesSelector(name: string, quoted: boolean = false): TimeseriesSelector {
+  return new TimeseriesSelector(name, [], quoted)
 }

@@ -7,6 +7,14 @@ describe('timeseriesSelector', function () {
     expect(timeseriesSelector("my_metric").build()).to.equal("my_metric")
   })
 
+  it("should be able to build query from quoted metric name", () => {
+    expect(timeseriesSelector("my_metric", true).build()).to.equal('{"my_metric"}')
+  })
+
+  it("should be able to build query with labels from quoted metric name", () => {
+    expect(timeseriesSelector("my_metric", true).withLabels({ foo: "bar" }).build()).to.equal('{"my_metric",foo="bar"}')
+  })
+
   describe("labels", () => {
     it("should be able to include labels", () => {
       expect(timeseriesSelector("my_metric").withLabels({ status_code: "200", http_method: "POST" }).build()).to.equal('my_metric{status_code="200",http_method="POST"}')
