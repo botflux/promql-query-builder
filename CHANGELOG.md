@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.3.0](https://github.com/botflux/promql-query-builder/compare/v1.2.0...v1.3.0) (2024-12-11)
+
+
+### Features
+
+* support quoted (utf8) metric name ([8d2a440](https://github.com/botflux/promql-query-builder/commit/8d2a440fe2b54dd291648a979257b8f0c4266a56))
+
 ## [1.2.0](https://github.com/botflux/promql-query-builder/compare/v1.1.1...v1.2.0) (2024-12-06)
 
 
