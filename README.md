@@ -41,3 +41,34 @@ const ceiled = ceil(timeseriesSelector("http_request_count").withLabels({ http_m
 // result is `rate(http_request_count[5m:30s])
 const requestRate = rate(range(timeseriesSelector("http_request_count")), [ duration.minutes(5), duration.seconds(30) ]).build()
 ```
+
+## Missing a function?
+
+You can create missing function in case you find one.
+Say, the `avg` function is not existing. Then, in the case
+you can adapt the following example:
+
+```typescript
+import {prometheusFunction, Buildable} from "promql-query-builder"
+
+function avg(selector: Buildable) {
+  return prometheusFunction("avg", [ selector ])
+}
+```
+
+> Do not hesitate to create a PR or open an issue so others do not 
+> have to define functions themselves.
+
+You can also create functions with multiple arguments.
+Follow the next example to re-create the `histogram_quantile` function:
+
+```typescript
+import {prometheusFunction, Buildable, promScalar} from "promql-query-builder"
+
+export function histogramQuantile (quantile: number, selector: Buildable) {
+  return prometheusFunction("histogram_quantile", [
+    promScalar(quantile),
+    selector
+  ])
+}
+```
