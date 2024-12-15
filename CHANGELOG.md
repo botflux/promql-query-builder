@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [commit-and-tag-version](https://github.com/absolute-version/commit-and-tag-version) for commit guidelines.
 
+## [1.4.0](https://github.com/botflux/promql-query-builder/compare/v1.3.0...v1.4.0) (2024-12-15)
+
+
+### Features
+
+* add support for rad, deg, pi and trigonometric functions ([2cdf59e](https://github.com/botflux/promql-query-builder/commit/2cdf59ef2482bdf19522f1eb0c5ba90ddb752d65))
+
 ## [1.3.0](https://github.com/botflux/promql-query-builder/compare/v1.2.0...v1.3.0) (2024-12-11)
 
 
