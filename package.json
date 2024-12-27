@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "test": "ts-mocha ./src/**/*.spec.ts",
     "preversion": "npm run typecheck && npm run test && npm run build",
-    "version": "release-it"
+    "release": "release-it"
   },
   "repository": {
     "type": "git",
