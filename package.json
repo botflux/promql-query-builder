@@ -9,7 +9,7 @@
     "typecheck": "tsc --noEmit",
     "test": "ts-mocha ./src/**/*.spec.ts",
     "preversion": "npm run typecheck && npm run test && npm run build",
-    "version": "commit-and-tag-version"
+    "version": "release-it"
   },
   "repository": {
     "type": "git",
@@ -28,12 +28,13 @@
   },
   "homepage": "https://github.com/botflux/promql-query-builder#readme",
   "devDependencies": {
+    "@release-it/conventional-changelog": "^8.0.1",
     "@types/chai": "^5.0.1",
     "@types/mocha": "^10.0.10",
     "@types/node": "^22.10.0",
     "chai": "^4.5.0",
-    "commit-and-tag-version": "^12.5.0",
     "mocha": "^10.8.2",
+    "release-it": "^17.1.1",
     "ts-mocha": "^10.0.0",
     "ts-node": "^10.9.2",
     "typescript": "^5.7.2"
