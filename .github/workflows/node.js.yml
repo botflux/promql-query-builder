@@ -30,5 +30,6 @@ jobs:
           cache: 'npm'
       - run: npm ci
       - run: cat package.json
+      - run: cat node_modules/chai/package.json
       - run: npm run typecheck
       - run: npm test
