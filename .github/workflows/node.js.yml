@@ -28,6 +28,8 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
+      - run: node -v
+      - run: npm -v
       - run: npm ci
       - run: cat package.json
       - run: cat node_modules/chai/package.json
